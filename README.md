@@ -28,7 +28,7 @@ Excel管理だと部署、担当営業マン毎にフォーマットがバラバ
 <...>
 
 ## チャレンジ要素一覧
-<https://docs.google.com/spreadsheets/d/1E4Quehglf9PxM1XTE-ft2X5-hJ5dmoJhsI-UJlgzVmY/edit#gid=0>
+<https://docs.google.com/spreadsheets/d/1Zjj320PmjnDyBVHmH4cY34-KqpLBENc62WbzVayopZQ/edit#gid=0>
 
 ## 開発環境
 - OS：Linux(CentOS)
