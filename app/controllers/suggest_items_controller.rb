@@ -1,0 +1,2 @@
+class SuggestItemsController < ApplicationController
+end

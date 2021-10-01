@@ -1,0 +1,2 @@
+class SuggestItem < ApplicationRecord
+end
