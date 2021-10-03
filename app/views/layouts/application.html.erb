@@ -1,15 +1,64 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SalesTool</title>
+    <title>SalesBrain</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+       <div class="header-bar">
+         <div class="title">SalesBrain</div>
+         <div class="menu">
+          <% if admin_signed_in? %>
+           <li class="menu-content">
+             <%= link_to "ユーザー一覧" %>
+           </li>
+
+           <li class="menu-content">
+             <%= link_to "得意先一覧", admin_customers_path %>
+           </li>
+
+           <li class="menu-content">
+             <%= link_to "商品一覧" %>
+           </li>
+
+           <li class="menu-content">
+             <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+           </li>
+          <% elsif user_signed_in? %>
+           <li class="menu-content">
+             <%= link_to "マイページ" %>
+           </li>
+
+           <li class="menu-content">
+             <%= link_to "商品一覧" %>
+           </li>
+
+           <li class="menu-content">
+             <%= link_to "カート" %>
+           </li>
+
+           <li class="menu-content">
+             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+           </li>
+          <% else %>
+           <li class="menu-content">
+             <%= link_to "ログイン", new_user_session_path %>
+           </li>
+
+           <li class="menu-content">
+             <%= link_to "新規登録", new_user_registration_path %>
+           </li>
+          <% end %>
+         </div>
+       </div>
+   </header>
     <%= yield %>
   </body>
 </html>
