@@ -1,6 +1,20 @@
-<%= form_with model:@customer, local:true do |f| %>
+<%= form_with model:[:admin, @customer], local:true do |f| %>
  <div>
-   <%= f.label %>
+   <%= f.label "担当社員" %><%= f.select :user_id, options_from_collection_for_select(User.all, :id, :name) %>
  </div>
- <div></div>
+ <div>
+  <%= f.label "会社名" %><%= f.text_field :name %>
+ </div>
+ <div>
+  <%= f.label "郵便番号" %><%= f.text_field :postal_code %>
+ </div>
+ <div>
+  <%= f.label "住所" %><%= f.text_field :address %>
+ </div>
+ <div>
+  <%= f.label "電話番号" %><%= f.text_field :telephone_number %>
+ </div>
+ <div>
+  <%= f.submit "登録" %>
+ </div>
 <% end %>
