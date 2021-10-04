@@ -1,0 +1,19 @@
+<%= form_with model:[:admin, @item], local:true do |f| %>
+ <div>
+   <%= f.label "商品画像" %><%= f.select :user_id, options_from_collection_for_select(User.all, :id, :name) %>
+ </div>
+ <div>
+  <%= f.label "商品名" %><%= f.text_field :name %>
+ </div>
+ <div>
+  <%= f.label "商品内容" %><%= f.text_field :content %>
+ </div>
+
+ <div>
+  <%= f.submit "登録" %>
+ </div>
+<% end %>
+
+<div>
+ <%= link_to "一覧に戻る", admin_customers_path %>
+</div>

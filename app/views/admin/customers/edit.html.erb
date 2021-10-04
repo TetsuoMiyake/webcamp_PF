@@ -1,6 +1,8 @@
+<h2>客先編集</h2>
+
 <%= form_with model:[:admin, @customer], local:true do |f| %>
  <div>
-   <%= f.label "担当社員" %><%= f.select :user_id, options_from_collection_for_select(User.all, :id, :name) %>
+   <%= f.label "担当社員" %><%= f.select :user_id, options_from_collection_for_select(User.all, :id, :name, {:selected => @customer.user_id}) %>
  </div>
  <div>
   <%= f.label "会社名" %><%= f.text_field :name %>
@@ -20,5 +22,5 @@
 <% end %>
 
 <div>
- <%= link_to "一覧に戻る", admin_customers_path %>
+ <%= link_to "戻る", admin_customer_path(@customer.id) %>
 </div>
