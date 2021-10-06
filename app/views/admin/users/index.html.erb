@@ -1,0 +1,6 @@
+<h2>営業マン一覧</h2>
+
+<% @users.each do |user| %>
+ <%= user.name %>
+ <%= link_to "詳細", admin_user_path(user.id) %>
+<% end %>

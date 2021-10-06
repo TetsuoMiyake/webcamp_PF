@@ -1,0 +1,21 @@
+<h2>営業マン詳細</h2>
+
+<%= form_with model:[:admin, @user], local:true do |f| %>
+ <div>
+  <%= f.label "社員番号" %><%= @user.number %>
+ </div>
+ <div>
+   <%= f.label "営業マン" %><%= @user.name %>
+ </div>
+<% end %>
+
+<h2>担当得意先一覧</h2>
+
+<% @customers.each do |customer| %>
+ <%= customer.name %>
+ <%= link_to "詳細", admin_customer_path(customer.id) %>
+<% end %>
+
+<div>
+ <%= link_to "一覧に戻る", admin_users_path %>
+</div>

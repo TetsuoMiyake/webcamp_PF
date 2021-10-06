@@ -1,12 +1,13 @@
 <%= form_with model:[:admin, @item], local:true do |f| %>
  <div>
-   <%= f.label "商品画像" %><%= f.select :user_id, options_from_collection_for_select(User.all, :id, :name) %>
+   <%= f.label "商品画像" %>
+   <%= f.attachment_field :image, placeholder: "商品画像" %>
  </div>
  <div>
   <%= f.label "商品名" %><%= f.text_field :name %>
  </div>
  <div>
-  <%= f.label "商品内容" %><%= f.text_field :content %>
+  <%= f.label "商品内容" %><%= f.text_area :content %>
  </div>
 
  <div>
@@ -15,5 +16,5 @@
 <% end %>
 
 <div>
- <%= link_to "一覧に戻る", admin_customers_path %>
+ <%= link_to "一覧に戻る", admin_items_path %>
 </div>

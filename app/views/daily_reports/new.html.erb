@@ -1,0 +1,20 @@
+<%= form_with model: @daily_report, local:true do |f| %>
+ <div>
+  <%= f.label "訪問日時" %>
+  <%= f.datetime_field :visit_date %>
+ </div>
+ <div>
+   <%= f.label "得意先" %><%= f.select :customer_id, options_from_collection_for_select(Customer.all, :id, :name) %>
+ </div>
+ <div>
+  <%= f.label "訪問内容" %><%= f.text_area :content %>
+ </div>
+
+ <div>
+  <%= f.submit "登録" %>
+ </div>
+<% end %>
+
+<div>
+ <%= link_to "一覧に戻る", daily_reports_path %>
+</div>

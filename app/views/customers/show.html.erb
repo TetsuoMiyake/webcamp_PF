@@ -1,8 +1,8 @@
 <h2>得意先詳細</h2>
 
-<%= form_with model:[:admin, @customer], local:true do |f| %>
+<%= form_with model:@customer, local:true do |f| %>
  <div>
-   <%= f.label "担当社員" %><%= link_to @customer.user.name, admin_user_path(@customer.id) %>
+   <%= f.label "担当社員" %><%= link_to @customer.user.name %>
  </div>
  <div>
   <%= f.label "会社名" %><%= @customer.name %>
@@ -19,9 +19,5 @@
 <% end %>
 
 <div>
- <%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
-</div>
-
-<div>
- <%= link_to "一覧に戻る", admin_customers_path %>
+ <%= link_to "一覧に戻る", customers_path %>
 </div>
