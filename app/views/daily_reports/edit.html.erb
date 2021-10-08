@@ -1,19 +1,18 @@
 <%= form_with model: @daily_report, local:true do |f| %>
 
- <%= f.hidden_field :user_id, value: current_user.id %>
  <div>
   <%= f.label "訪問日時" %>
   <%= f.datetime_field :visit_date %>
  </div>
  <div>
-   <%= f.label "得意先" %><%= f.select :customer_id, options_from_collection_for_select(Customer.all, :id, :name) %>
+   <%= f.label "得意先" %><%= @daily_report.customer.name %>
  </div>
  <div>
   <%= f.label "訪問内容" %><%= f.text_area :content %>
  </div>
 
  <div>
-  <%= f.submit "登録" %>
+  <%= f.submit "更新" %>
  </div>
 <% end %>
 

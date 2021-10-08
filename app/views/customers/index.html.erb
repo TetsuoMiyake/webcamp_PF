@@ -2,5 +2,5 @@
 
 <% @customers.each do |customer| %>
  <%= customer.name %>
- <%= link_to "詳細", admin_customer_path(customer.id) %>
+ <%= link_to "詳細", customer_path(customer.id) %>
 <% end %>

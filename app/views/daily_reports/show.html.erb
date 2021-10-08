@@ -3,15 +3,15 @@
 <%= form_with model:@daily_report, local:true do |f| %>
 
  <div>担当者</div>
- <div></div>
+ <div><%= @daily_report.user.name %></div>
 
  <div>訪問先</div>
- <div><%= @daily_report.customer.name %></div>
+ <div><%= link_to @daily_report.customer.name, customer_path(@daily_report.customer.id) %></div>
 
  <div>訪問日時</div>
  <div><%= @daily_report.visit_date %></div>
 
- <div>商品内容</div>
+ <div>訪問内容</div>
  <div><%= @daily_report.content %></div>
 
 <% end %>
