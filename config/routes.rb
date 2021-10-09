@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   resources :customers
   resources :daily_reports
   resources :items
-  resources :suggest_items
+  resources :suggest_items, only: [:index, :new, :update]
+
+  post 'suggest_items' => 'suggest_items#create', as: 'create_suggest_items'
 
   namespace :admin do
     resources :customers
