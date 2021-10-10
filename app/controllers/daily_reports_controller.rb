@@ -10,6 +10,7 @@ class DailyReportsController < ApplicationController
 
   def show
     @daily_report = DailyReport.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit

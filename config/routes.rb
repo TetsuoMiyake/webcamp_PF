@@ -14,9 +14,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :comments
   resources :customers
-  resources :daily_reports
+  resources :daily_reports do
+    resources :comments, only: [:create, :destroy]
+  end
   resources :items
   resources :suggest_items, only: [:index, :new, :update]
 

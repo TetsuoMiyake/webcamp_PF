@@ -21,3 +21,14 @@
 <div>
  <%= link_to "一覧に戻る", daily_reports_path %>
 </div>
+
+<% @daily_report.comments.each do |comment| %>
+ <%= comment.user.name %>
+ <%= comment.created_at.strftime('%Y/%m/%d') %>
+ <%= comment.comment %>
+<% end %>
+
+<%= form_with(model:[@daily_report, @comment], local: true) do |f| %>
+ <%= f.text_area :comment %>
+ <%= f.submit "コメントする" %>
+<% end %>

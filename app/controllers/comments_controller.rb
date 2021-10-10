@@ -1,6 +1,19 @@
 class CommentsController < ApplicationController
 
   def create
+    daily_report = DailyReport.find(params[:daily_report_id])
+    comment = current_user.comments.new(comment_params)
+    comment.daily_report_id = daily_report.id
+    comment.save
+    redirect_to daily_report_path(daily_report)
+  end
 
+  def destroy
+
+  end
+
+  private
+  def comment_params
+    params.require(:comment).permit(:comment)
   end
 end
