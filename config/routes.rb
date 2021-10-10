@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :suggest_items, only: [:index, :new, :update]
 
   post 'suggest_items' => 'suggest_items#create', as: 'create_suggest_items'
+  get "/:current_users/my_page" => "users#show", as: 'my_page'
 
   namespace :admin do
     resources :customers

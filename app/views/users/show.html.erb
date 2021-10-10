@@ -1,0 +1,13 @@
+<h1>マイページ</h1>
+
+<h2>担当客先一覧</h2>
+<% @customers.each do |customer| %>
+ <%= customer.name %>
+ <%= link_to "詳細" %>
+<% end %>
+
+<h2>日報一覧</h2>
+<% @daily_reports.each do |daily_report| %>
+ <%= daily_report.customer.name %>
+ <%= link_to "詳細" %>
+<% end %>
