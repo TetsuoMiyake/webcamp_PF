@@ -1,20 +1,45 @@
 <h2>営業マン詳細</h2>
 
 <%= form_with model:[:admin, @user], local:true do |f| %>
- <div>
-  <%= f.label "社員番号" %><%= @user.number %>
- </div>
- <div>
-   <%= f.label "営業マン" %><%= @user.name %>
+ <div class="container">
+  <div class="row">
+   <table class="col-sm-6 col-mg-3 mt-sm-5">
+    <tr height="50">
+     <th><%= f.label "社員番号" %>：<%= @user.number %></th>
+  　</tr>
+    <tr height="50">
+     <th><%= f.label "営業マン" %>：<%= @user.name %></th>
+    </tr>
+   </table>
+  </div>
  </div>
 <% end %>
 
 <h2>担当得意先一覧</h2>
 
-<% @customers.each do |customer| %>
- <%= customer.name %>
- <%= link_to "詳細", admin_customer_path(customer.id) %>
-<% end %>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-5">
+   <table class="table">
+    <thead>
+     <tr class="table-secondary">
+      <th>担当得意先名</th>
+      <th>編集</th>
+     </tr>
+    </thead>
+
+    <tbody>
+     <% @customers.each do |customer| %>
+      <tr>
+       <th><%= customer.name %></th>
+       <th><%= link_to "編集", edit_admin_customer_path(customer.id) %></th>
+      </tr>
+     <% end %>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>
 
 <div>
  <%= link_to "一覧に戻る", admin_users_path %>

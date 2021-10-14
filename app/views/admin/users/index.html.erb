@@ -1,6 +1,27 @@
 <h2>営業マン一覧</h2>
 
-<% @users.each do |user| %>
- <%= user.name %>
- <%= link_to "詳細", admin_user_path(user.id) %>
-<% end %>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-10 mx-auto">
+   <table class="table">
+    <thead>
+     <tr class="table-secondary">
+      <th>社員番号</th>
+      <th>名前</th>
+      <th></th>
+     </tr>
+    </thead>
+
+    <tbody>
+     <% @users.each do |user| %>
+      <tr>
+       <th><%= user.number %></th>
+       <th><%= user.name %></th>
+       <th class="text-center"><%= link_to "詳細", admin_user_path(user.id) %></th>
+      </tr>
+     <% end %>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>

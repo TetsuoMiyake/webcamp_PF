@@ -1,20 +1,26 @@
 <h2>商品情報編集</h2>
 
 <%= form_with model:[:admin, @item], local:true do |f| %>
- <div>
-   <%= f.label "商品画像" %><%= f.attachment_field :image, placeholder: "商品画像" %>
- </div>
- <div>
-  <%= f.label "商品名" %><%= f.text_field :name %>
- </div>
- <div>
-  <%= f.label "商品内容" %><%= f.text_field :content %>
- </div>
- <div>
-  <%= f.submit "更新" %>
+ <div class="container">
+  <div class="row">
+   <table class="col-sm-12 col-mg-8 mt-sm-5">
+    <tr height="50">
+     <th><%= f.label "商品画像" %></th>
+     <th><%= f.attachment_field :image, placeholder: "商品画像" %></th>
+    </tr>
+    <tr height="50">
+     <th><%= f.label "商品名" %></th>
+     <th><%= f.text_field :name %></th>
+    </tr>
+    <tr height="50">
+     <th><%= f.label "商品内容" %></th>
+     <th><%= f.text_field :content %></th>
+    </tr>
+    <tr height="50">
+     <th><%= f.submit "更新", class: "btn btn-success" %></th>
+     <th><%= link_to "戻る", admin_item_path(@item.id), class: "btn btn-primary" %></th>
+    </tr>
+   </table>
+  </div>
  </div>
 <% end %>
-
-<div>
- <%= link_to "戻る", admin_item_path(@item.id) %>
-</div>

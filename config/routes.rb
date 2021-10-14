@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :customers
   resources :daily_reports do
+    collection {get "search"}
     resources :comments, only: [:create, :destroy]
   end
   resources :items
