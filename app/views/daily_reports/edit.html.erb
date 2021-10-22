@@ -1,21 +1,32 @@
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mt-3 mb-3">
+   <h3>日報編集</h3>
+  </div>
+ </div>
+</div>
+
 <%= form_with model: @daily_report, local:true do |f| %>
 
- <div>
-  <%= f.label "訪問日時" %>
-  <%= f.datetime_field :visit_date %>
- </div>
- <div>
-   <%= f.label "得意先" %><%= @daily_report.customer.name %>
- </div>
- <div>
-  <%= f.label "訪問内容" %><%= f.text_area :content %>
- </div>
+<div class="container">
+  <div class="row">
+   <table class="col-sm-12 col-mg-8 mt-sm-5">
+    <tr height="50">
+     <th><%= f.label "訪問日時" %></th>
+     <th><%= f.datetime_field :start_time %></th>
+    </tr>
+    <tr height="50">
+     <th><%= f.label "得意先" %></th><th><%= @daily_report.customer.name %></th>
+    </tr>
+    <tr height="50">
+     <th><%= f.label "訪問内容" %></th><th><%= f.text_area :content %></th>
+    </tr>
 
- <div>
-  <%= f.submit "更新" %>
+    <tr height="50">
+     <th><%= f.submit "更新", class: "btn btn-success" %></th>
+     <th><%= link_to "一覧に戻る", daily_reports_path, class: "btn btn-primary" %></th>
+    </tr>
+   </table>
+  </div>
  </div>
 <% end %>
-
-<div>
- <%= link_to "一覧に戻る", daily_reports_path %>
-</div>

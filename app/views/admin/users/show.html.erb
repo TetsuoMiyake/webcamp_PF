@@ -3,14 +3,16 @@
 <%= form_with model:[:admin, @user], local:true do |f| %>
  <div class="container">
   <div class="row">
-   <table class="col-sm-6 col-mg-3 mt-sm-5">
-    <tr height="50">
-     <th><%= f.label "社員番号" %>：<%= @user.number %></th>
-  　</tr>
-    <tr height="50">
-     <th><%= f.label "営業マン" %>：<%= @user.name %></th>
-    </tr>
-   </table>
+   <div class="col-sm-6 col-mg-3 mt-sm-5">
+    <table class="table-bordered col-sm-9">
+     <tr height="50">
+      <th><%= f.label "社員番号" %></th><th><%= @user.number %></th>
+  　  </tr>
+     <tr height="50">
+      <th><%= f.label "営業マン" %></th><th><%= @user.name %></th>
+     </tr>
+    </table>
+   </div>
   </div>
  </div>
 <% end %>

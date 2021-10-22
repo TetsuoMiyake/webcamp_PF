@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_10_051549) do
+ActiveRecord::Schema.define(version: 2021_10_17_061948) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2021_10_10_051549) do
     t.string "telephone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "daily_reports", force: :cascade do |t|
@@ -48,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_10_10_051549) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "visit_date"
+    t.datetime "start_time"
   end
 
   create_table "items", force: :cascade do |t|

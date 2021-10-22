@@ -6,7 +6,7 @@ class DailyReportsController < ApplicationController
   end
 
   def index
-    @daily_reports = DailyReport.all.order(visit_date: :desc)
+    @daily_reports = DailyReport.all.order(start_time: :desc)
   end
 
   def show
@@ -41,7 +41,7 @@ class DailyReportsController < ApplicationController
 
   private
   def daily_report_params
-    params.require(:daily_report).permit(:user_id, :customer_id, :content, :visit_date)
+    params.require(:daily_report).permit(:user_id, :customer_id, :content, :start_time)
   end
 
   def set_daily_report

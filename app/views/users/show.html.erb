@@ -1,13 +1,69 @@
-<h1>マイページ</h1>
 
-<h2>担当客先一覧</h2>
-<% @customers.each do |customer| %>
- <%= customer.name %>
- <%= link_to "詳細" %>
-<% end %>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mt-3">
+   <h3>マイページ</h3>
+  </div>
+ </div>
+</div>
 
-<h2>日報一覧</h2>
-<% @daily_reports.each do |daily_report| %>
- <%= daily_report.customer.name %>
- <%= link_to "詳細" %>
-<% end %>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mt-5 mb-3">
+   <h4>〜担当客先一覧〜</h4>
+  </div>
+ </div>
+</div>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mx-auto box">
+   <table class="table">
+    <thead>
+     <tr class="table-secondary">
+      <th>会社名</th>
+      <th></th>
+     </tr>
+    </thead>
+
+    <tbody>
+     <% @customers.each do |customer| %>
+      <tr>
+       <th><%= customer.name %></th>
+       <th><%= link_to "詳細" %></th>
+      </tr>
+     <% end %>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>
+
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mt-5 mb-3">
+   <h4>〜日報一覧〜</h4>
+  </div>
+ </div>
+</div>
+
+<div class="container">
+ <div class="row">
+  <div class="col-sm-12 col-mg-8 mt-sm-5">
+   <%= month_calendar events: @daily_reports do |date, daily_reports| %>
+    <%= date.day %></br>
+
+    <% daily_reports.each do |daily_report| %>
+     <%= link_to daily_report.customer.name %></br>
+    <% end %>
+   <% end %>
+  </div>
+ </div>
+</div>
+
+<style type="text/css">
+ .box {
+  height: 200px;
+  border: 1px solid #000;
+  overflow-y: scroll;
+ }
+</style>

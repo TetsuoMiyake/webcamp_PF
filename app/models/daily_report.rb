@@ -5,7 +5,7 @@ class DailyReport < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      DailyReport.where(user_id: search[:user_id]).order(visit_date: :desc) 
+      DailyReport.where(user_id: search[:user_id]) .order(start_time: :desc)
     else
       DailyReport.all
     end

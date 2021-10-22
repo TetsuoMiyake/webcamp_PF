@@ -1,26 +1,64 @@
 <h2>得意先詳細</h2>
 
 <%= form_with model:@customer, local:true do |f| %>
- <div>
-   <%= f.label "担当社員" %><%= @customer.user.name %>
+ <div class="container">
+  <div class="row">
+   <table class="col-sm-12 col-mg-8 mt-sm-5 table-bordered">
+    <tr height="50">
+     <th><%= f.label "担当社員" %></th>
+     <th><%= @customer.user.name %></th>
+    </tr>
+    <tr height="50">
+     <th><%= f.label "会社名" %></th>
+     <th><%= @customer.name %></th>
+    </tr>
+    <tr height="50">
+     <th><%= f.label "郵便番号" %></th>
+     <th><%= @customer.postal_code %></th>
+    </tr>
+    <tr height="50">
+     <th><%= f.label "住所" %></th>
+     <th>
+      <%= @customer.address %>
+      <div id="map"></div>
+     </th>
+    </tr>
+    <tr height="50">
+     <th><%= f.label "電話番号" %></th>
+     <th><%= @customer.telephone_number %></th>
+    </tr>
+    <tr height="50">
+     <th><%= link_to "一覧に戻る", customers_path %></th>
+    </tr>
+   </table>
+  </div>
  </div>
- <div>
-  <%= f.label "会社名" %><%= @customer.name %>
- </div>
- <div>
-  <%= f.label "郵便番号" %><%= @customer.postal_code %>
- </div>
- <div>
-  <%= f.label "住所" %><%= @customer.address %>
- </div>
- <div>
-  <%= f.label "電話番号" %><%= @customer.telephone_number %>
- </div>
-<% end %>
 
-<div>
- <%= link_to "一覧に戻る", customers_path %>
-</div>
+ <script type="text/javascript">
+  function initMap() {
+   var test ={lat: <%= @customer.latitude %>, lng: <%= @customer.longitude %>};
+   var map = new google.maps.Map(document.getElementById('map'), {zoom: 15, center: test});
+   var transitLayer = new google.maps.TransitLayer();
+   transitLayer.setMap(map);
+   var contentString = '住所:<%= @customer.address %>';
+   var infowindow = new google.maps.InfoWindow({content: contentString});
+
+   var marker = new google.maps.Marker({position:test, map: map, title: contentString});
+   marker.addListener('click', function() {infowindow.open(map,marker);});
+  }
+ </script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+</script>
+
+<style type="text/css">
+ #map {
+  height: 200px;
+  width: 70%;
+ }
+</style>
+
+<% end %>
 
 <% if @customer.user_id == current_user.id %>
  <%= form_with model: @suggest_item, url: create_suggest_items_path, local:true do |f| %>

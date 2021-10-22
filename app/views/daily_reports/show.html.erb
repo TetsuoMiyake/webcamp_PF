@@ -1,34 +1,85 @@
-<h2>商品詳細</h2>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mt-3 mb-3">
+   <h2>日報詳細</h2>
+  </div>
+ </div>
+</div>
+
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mt-5 mb-3">
+   <h4>〜日報内容〜</h4>
+  </div>
+ </div>
+</div>
 
 <%= form_with model:@daily_report, local:true do |f| %>
+ <div class="container">
+  <div class="row">
+   <div class="col-sm-10 col-md-8 mt-sm-5">
+    <table class="col-sm-12 table-bordered">
+     <tr height="50">
+      <th class="col-sm-4">担当者</th>
+      <th class="col-sm-8"><%= @daily_report.user.name %></th>
+     </tr>
 
- <div>担当者</div>
- <div><%= @daily_report.user.name %></div>
+     <tr height="50">
+      <th class="col-sm-4">訪問先</th>
+      <th class="col-sm-8"><%= link_to @daily_report.customer.name, customer_path(@daily_report.customer.id) %></th>
+     </tr>
 
- <div>訪問先</div>
- <div><%= link_to @daily_report.customer.name, customer_path(@daily_report.customer.id) %></div>
+     <tr height="50">
+      <th class="col-sm-4">訪問日時</th>
+      <th class="col-sm-8"><%= @daily_report.start_time %></th>
+     </tr>
 
- <div>訪問日時</div>
- <div><%= @daily_report.visit_date %></div>
-
- <div>訪問内容</div>
- <div><%= @daily_report.content %></div>
+     <tr height="50">
+      <th class="col-sm-4">訪問内容</th>
+      <th class="col-sm-8 content"><%= @daily_report.content %></th>
+     </tr>
+     <tr height="50">
+      <th><%= link_to "編集する", edit_daily_report_path(@daily_report.id), class: "btn btn-success" %></th>
+      <th><%= link_to "一覧に戻る", daily_reports_path, class: "btn btn-primary" %></th>
+     </tr>
+    </div>
+   </table>
+  </div>
+ </div>
 
 <% end %>
 
-<%= link_to "編集する", edit_daily_report_path(@daily_report.id) %>
-
-<div>
- <%= link_to "一覧に戻る", daily_reports_path %>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mt-5 mb-3">
+   <h4>〜コメント一覧〜</h4>
+  </div>
+ </div>
 </div>
 
 <% @daily_report.comments.each do |comment| %>
- <%= comment.user.name %>
- <%= comment.created_at.strftime('%Y/%m/%d') %>
- <%= comment.comment %>
+ <div class="container">
+  <div class="row">
+   <div class="col-sm-6 col-mg-8 mt-sm-5">
+    <table class="col-sm-12">
+     <tr>
+      <th class="col-sm-4"><%= comment.created_at.strftime('%Y/%m/%d') %></th>
+      <th class="col-sm-4"><%= comment.user.name %></th>
+      <th class="col-sm-4"><%= comment.comment %></th>
+     </tr>
+    </div>
+   </table>
+  </div>
+ </div>
 <% end %>
 
 <%= form_with(model:[@daily_report, @comment], local: true) do |f| %>
  <%= f.text_area :comment %>
  <%= f.submit "コメントする" %>
 <% end %>
+
+<style type="text/css">
+ .content {
+  word-break: break-all;
+ }
+</style>
