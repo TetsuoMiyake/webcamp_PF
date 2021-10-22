@@ -1,9 +1,15 @@
-<h2>商品詳細</h2>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mt-3 mb-3">
+   <h2>商品詳細</h2>
+  </div>
+ </div>
+</div>
 
 <%= form_with model:[:admin, @item], local:true do |f| %>
  <div class="container">
   <div class="row">
-   <table class="col-sm-12 col-mg-8 mt-sm-5 table-bordered">
+   <table class="col-sm-12 col-md-8 col-lg-6 mt-sm-5 table-bordered">
     <tr height="50">
      <th>商品画像</th>
      <th><%= attachment_image_tag @item, :image, size: '250x200' %></th>
@@ -20,5 +26,8 @@
      <th><%= link_to "編集する", edit_admin_item_path(@item.id) %></th>
      <th><%= link_to "一覧に戻る", admin_items_path %></th>
     </tr>
+   </table>
+  </div>
+ </div>
 
 <% end %>

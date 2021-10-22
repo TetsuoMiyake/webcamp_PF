@@ -1,9 +1,24 @@
-<h2>得意先詳細</h2>
+
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mt-3">
+   <h3>得意先詳細</h3>
+  </div>
+ </div>
+</div>
+
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mt-5 mb-3">
+   <h4>〜客先情報〜</h4>
+  </div>
+ </div>
+</div>
 
 <%= form_with model:@customer, local:true do |f| %>
  <div class="container">
   <div class="row">
-   <table class="col-sm-12 col-mg-8 mt-sm-5 table-bordered">
+   <table class="col-sm-12 col-md-8 mt-sm-5 table-bordered">
     <tr height="50">
      <th><%= f.label "担当社員" %></th>
      <th><%= @customer.user.name %></th>
@@ -60,28 +75,84 @@
 
 <% end %>
 
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mt-5 mb-3">
+   <h4>〜提案商品〜</h4>
+  </div>
+ </div>
+</div>
 <% if @customer.user_id == current_user.id %>
  <%= form_with model: @suggest_item, url: create_suggest_items_path, local:true do |f| %>
   <%= f.hidden_field :customer_id, value: @customer.id %>
- <div>
-  <%= f.label "商品" %><%= f.select :item_id, options_from_collection_for_select(Item.all, :id, :name) %>
- </div>
- <div>
- </div>
-
- <div>
-  <%= f.submit "登録" %>
- </div>
+   <div class="container">
+    <div class="row">
+     <table class="col-sm-5 col-md-3 mt-sm-1">
+      <tr>
+       <th><%= f.select :item_id, options_from_collection_for_select(Item.all, :id, :name) %></th>
+       <th><%= f.submit "登録" %></th>
+      </tr>
+     </table>
+    </div>
+   </div>
  <% end %>
 
- <% @suggest_items.each do |suggest_item| %>
-  <%= suggest_item.item.name %>
-  <%= form_with model: suggest_item, url: suggest_item_path(suggest_item.id), method: :patch,  local:true do |f| %>
-   <%= f.hidden_field :suggest_item_id, value: suggest_item.id %>
-   <%= f.hidden_field :customer_id, value: suggest_item.customer_id %>
-   <%= f.hidden_field :item_id, value: suggest_item.item_id %>
-   <%= f.select :status, SuggestItem.statuses.keys.to_a,{} %> <%= f.submit '更新' %>
-  <% end %>
- <% end %>
+ <div class="container">
+  <div class="row">
+   <div class="box col-sm-8 col-md-6 col-lg-4 mt-sm-3 mb-sm-3">
+    <table class="table">
+     <tr>
+      <th>商品名</th>
+      <th>ステータス</th>
+      <th></th>
+     </tr>
+     <% @suggest_items.each do |suggest_item| %>
+      <tr>
+       <th><%= suggest_item.item.name %></th>
+       <%= form_with model: suggest_item, url: suggest_item_path(suggest_item.id), method: :patch,  local:true do |f| %>
+        <%= f.hidden_field :suggest_item_id, value: suggest_item.id %>
+        <%= f.hidden_field :customer_id, value: suggest_item.customer_id %>
+        <%= f.hidden_field :item_id, value: suggest_item.item_id %>
+        <th><%= f.select :status, SuggestItem.statuses.keys.to_a,{} %></th>
+        <th>
+         <div><%= f.submit '更新' %></div>
+        </th>
+       <% end %>
+      </tr>
+     <% end %>
+    </table>
+   </div>
+  </div>
+ </div>
+
+<% else %>
+ <div class="container">
+  <div class="row">
+   <div class="box col-sm-8 col-md-6 col-lg-4 mt-sm-3 mb-sm-3">
+    <table class="table">
+     <tr>
+      <th>商品名</th>
+      <th>ステータス</th>
+      <th></th>
+     </tr>
+     <% @suggest_items.each do |suggest_item| %>
+      <tr>
+       <th><%= suggest_item.item.name %></th>
+       <th><%= suggest_item.status %></th>
+      </tr>
+     <% end %>
+    </table>
+   </div>
+  </div>
+ </div>
+
 
 <% end %>
+
+<style type="text/css">
+ .box {
+  height: 200px;
+  border: 1px solid #000;
+  overflow-y: scroll;
+ }
+</style>
