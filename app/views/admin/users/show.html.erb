@@ -1,9 +1,23 @@
-<h2>営業マン詳細</h2>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mt-3 mb-3">
+   <h2>営業マン詳細</h2>
+  </div>
+ </div>
+</div>
+
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mt-5 mb-3">
+   <h4>〜詳細〜</h4>
+  </div>
+ </div>
+</div>
 
 <%= form_with model:[:admin, @user], local:true do |f| %>
  <div class="container">
   <div class="row">
-   <div class="col-sm-6 col-mg-3 mt-sm-5">
+   <div class="col-sm-7 col-lg-5 col-mg-3">
     <table class="table-bordered col-sm-9">
      <tr height="50">
       <th><%= f.label "社員番号" %></th><th><%= @user.number %></th>
@@ -17,11 +31,17 @@
  </div>
 <% end %>
 
-<h2>担当得意先一覧</h2>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mt-5 mb-3">
+   <h4>〜担当客先〜</h4>
+  </div>
+ </div>
+</div>
 
 <div class="container">
  <div class="row">
-  <div class="col-sm-5">
+  <div class="col-sm-7 col-lg-5 box">
    <table class="table">
     <thead>
      <tr class="table-secondary">
@@ -43,6 +63,18 @@
  </div>
 </div>
 
-<div>
- <%= link_to "一覧に戻る", admin_users_path %>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-7 col-lg-5 mt-3 mb-5">
+   <div class="text-center"><%= link_to "一覧に戻る", admin_users_path, class: "btn btn-primary" %></div>
+  </div>
+ </div>
 </div>
+
+<style type="text/css">
+ .box {
+  height: 200px;
+  border: 1px solid #000;
+  overflow-y: scroll;
+ }
+</style>

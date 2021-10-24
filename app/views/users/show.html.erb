@@ -53,7 +53,7 @@
     <%= date.day %></br>
 
     <% daily_reports.each do |daily_report| %>
-     <%= link_to daily_report.customer.name %></br>
+     <%= link_to daily_report.customer.name, daily_report_path(daily_report.id) %></br>
     <% end %>
    <% end %>
   </div>

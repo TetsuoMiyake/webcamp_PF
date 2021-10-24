@@ -10,4 +10,6 @@ class SuggestItem < ApplicationRecord
     "切替済": 4,
     "切替失敗": 5,
   }
+
+  validates :item_id, uniqueness: true
 end

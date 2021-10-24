@@ -17,7 +17,7 @@
 <%= form_with model:@daily_report, local:true do |f| %>
  <div class="container">
   <div class="row">
-   <div class="col-sm-10 col-md-8 mt-sm-5">
+   <div class="col-sm-10 col-md-10 col-lg-8 mt-sm-5">
     <table class="col-sm-12 table-bordered">
      <tr height="50">
       <th class="col-sm-4">担当者</th>
@@ -60,12 +60,17 @@
 <% @daily_report.comments.each do |comment| %>
  <div class="container">
   <div class="row">
-   <div class="col-sm-6 col-mg-8 mt-sm-5">
-    <table class="col-sm-12">
+   <div class="col-sm-10 col-md-10 col-lg-8 mt-sm-5">
+    <table class="col-sm-12 table-bordered">
      <tr>
-      <th class="col-sm-4"><%= comment.created_at.strftime('%Y/%m/%d') %></th>
-      <th class="col-sm-4"><%= comment.user.name %></th>
-      <th class="col-sm-4"><%= comment.comment %></th>
+      <th class="col-sm-3">投稿日時</th>
+      <th class="col-sm-3">投稿者名</th>
+      <th class="col-sm-6">コメント内容</th>
+     </tr>
+     <tr>
+      <th class="col-sm-3"><%= comment.created_at.strftime('%Y/%m/%d') %></th>
+      <th class="col-sm-3"><%= comment.user.name %></th>
+      <th class="col-sm-6 comment"><%= comment.comment %></th>
      </tr>
     </div>
    </table>
@@ -73,13 +78,23 @@
  </div>
 <% end %>
 
-<%= form_with(model:[@daily_report, @comment], local: true) do |f| %>
- <%= f.text_area :comment %>
- <%= f.submit "コメントする" %>
-<% end %>
+<div class="container">
+ <div class="row">
+  <div class="box col-sm-8 col-md-6 col-lg-4 mt-sm-3 mb-sm-3">
+   <%= form_with(model:[@daily_report, @comment], local: true) do |f| %>
+    <%= f.text_area :comment %>
+    <%= f.submit "コメントする" %>
+   <% end %>
+  </div>
+ </div>
+</div>
 
 <style type="text/css">
  .content {
+  word-break: break-all;
+ }
+
+ .comment {
   word-break: break-all;
  }
 </style>
