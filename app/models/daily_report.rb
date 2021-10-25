@@ -4,10 +4,13 @@ class DailyReport < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   def self.search(search)
-    if search != ""
-      DailyReport.where(user_id: search[:user_id]) .order(start_time: :desc)
-    else
-      DailyReport.all
+    ret = DailyReport.all
+    if search[:user_id] != ""
+      ret = ret.where(user_id: search[:user_id])
     end
+    if search[:customer_id] != ""
+      ret = ret.where(customer_id: search[:customer_id])
+    end
+    return ret
   end
 end

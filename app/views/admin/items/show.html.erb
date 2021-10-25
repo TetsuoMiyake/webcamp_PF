@@ -23,8 +23,8 @@
      <th><%= @item.content %></tr>
     </tr>
     <tr height="50">
-     <th><%= link_to "編集する", edit_admin_item_path(@item.id) %></th>
-     <th><%= link_to "一覧に戻る", admin_items_path %></th>
+     <th><%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-success" %></th>
+     <th><%= link_to "一覧に戻る", admin_items_path, class: "btn btn-primary" %></th>
     </tr>
    </table>
   </div>

@@ -6,7 +6,7 @@ class DailyReportsController < ApplicationController
   end
 
   def index
-    @daily_reports = DailyReport.all.order(start_time: :desc)
+    @daily_reports = DailyReport.all.page(params[:page]).order(start_time: :desc)
   end
 
   def show
@@ -35,7 +35,7 @@ class DailyReportsController < ApplicationController
   end
 
   def search
-    @daily_reports = DailyReport.search(params)
+    @daily_reports = DailyReport.search(params).page(params[:page]).order(start_time: :desc)
     render "index"
   end
 

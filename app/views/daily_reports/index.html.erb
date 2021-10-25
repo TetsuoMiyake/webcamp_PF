@@ -22,6 +22,15 @@
 
 <div class="container">
  <div class="row">
+  <div class="col-sm-10 mx-auto mb-3">
+   <div class="text-right"><%= link_to "新規登録", new_daily_report_path, class: "btn btn-primary" %></div>
+  </div>
+ </div>
+</div>
+
+
+<div class="container">
+ <div class="row">
   <div class="col-sm-10 mx-auto">
    <table class="table">
     <thead>
@@ -46,4 +55,10 @@
  </div>
 </div>
 
-<div><%= link_to "新規登録", new_daily_report_path %></div>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-10 mx-auto mb-3">
+   <div class="col-2 mx-auto"><%= paginate @daily_reports %></div>
+  </div>
+ </div>
+</div>
