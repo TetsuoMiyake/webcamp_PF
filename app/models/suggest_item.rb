@@ -11,5 +11,5 @@ class SuggestItem < ApplicationRecord
     "切替失敗": 5,
   }
 
-  validates :item_id, uniqueness: true
+
 end

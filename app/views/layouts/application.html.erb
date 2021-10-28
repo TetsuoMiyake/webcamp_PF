@@ -14,27 +14,27 @@
     <header class="border-bottom">
        <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" atia-label="Toggle navigation">
+         <div class="title">SalesBrain <i class="fas fa-brain" ></i></div>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
          </button>
-         <div class="title">SalesBrain <i class="fas fa-brain" ></i></div>
          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto d-flex">
+          <ul class="navbar-nav ml-auto">
            <% if admin_signed_in? %>
             <li class="nav-item btn">
-             <%= link_to "ユーザー一覧", admin_users_path %>
+             <%= link_to "ユーザー一覧", admin_users_path, class: 'nav-link text-dark' %>
             </li>
 
             <li class="nav-item btn">
-             <%= link_to "得意先一覧", admin_customers_path %>
+             <%= link_to "得意先一覧", admin_customers_path, class: 'nav-link text-dark' %>
             </li>
 
             <li class="nav-item btn">
-             <%= link_to "商品一覧", admin_items_path %>
+             <%= link_to "商品一覧", admin_items_path, class: 'nav-link text-dark' %>
             </li>
 
             <li class="nav-item btn">
-             <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+             <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
            <% elsif user_signed_in? %>
             <li class="nav-item btn">
@@ -58,11 +58,11 @@
             </li>
            <% else %>
             <li class="nav-item btn">
-             <%= link_to "ログイン", new_user_session_path %>
+             <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
             </li>
 
             <li class="nav-item btn">
-             <%= link_to "新規登録", new_user_registration_path %>
+             <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
             </li>
            <% end %>
           </ul>
@@ -70,7 +70,14 @@
        </div>
       </nav>
    </header>
-    <%= yield %>
+   <%= yield %>
+   <footer class="border-top">
+    <div class="container mt-5">
+     <div class="row">
+      <div class="col-sm-12"></div>
+     </div>
+    </div>
+   </footer>
   </body>
 </html>
 
