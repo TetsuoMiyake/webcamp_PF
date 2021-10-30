@@ -1,7 +1,7 @@
 <div class="container">
  <div class="row">
-  <div class="col-sm-6 mt-3 mb-3">
-   <h3>日報編集</h3>
+  <div class="col-sm-3 col-lg-2 mt-3 mb-3">
+   <h3 class="title-user">日報編集</h3>
   </div>
  </div>
 </div>
@@ -10,7 +10,7 @@
 
 <div class="container">
   <div class="row">
-   <table class="col-sm-12 col-mg-8 mt-sm-5">
+   <table class="col-sm-12 col-mg-8 mt-sm-5 mb-5">
     <tr height="50">
      <th><%= f.label "訪問日時" %></th>
      <th><%= f.datetime_field :start_time %></th>
@@ -30,3 +30,16 @@
   </div>
  </div>
 <% end %>
+
+<style type="text/css">
+
+ .title-user {
+  background:linear-gradient(45deg, #4fffc4, #fff);
+  font-family: YuGothic;
+ }
+
+ .title-bar {
+  background-color: #3fcc9d;
+ }
+
+</style>

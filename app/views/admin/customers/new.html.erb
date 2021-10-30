@@ -1,3 +1,11 @@
+<div class="container">
+ <div class="row">
+  <div class="col-sm-3 col-lg-2 mt-3 mb-3">
+   <h3 class="title-user">得意先登録</h3>
+  </div>
+ </div>
+</div>
+
 <%= form_with model:[:admin, @customer], local:true do |f| %>
  <div class="container">
   <div class="row">
@@ -34,3 +42,12 @@
   </div>
  </div>
 <% end %>
+
+<style type="text/css">
+
+ .title-user {
+  background:linear-gradient(45deg, #4fffc4, #fff);
+  font-family: YuGothic;
+ }
+
+</style>

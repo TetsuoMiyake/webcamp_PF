@@ -1,16 +1,16 @@
 
 <div class="container">
  <div class="row">
-  <div class="col-sm-6 mt-3 mb-3">
-   <h3>得意先詳細</h3>
+  <div class="col-sm-3 col-lg-2 mt-3 mb-3">
+   <h3 class="title-user">得意先詳細</h3>
   </div>
  </div>
 </div>
 
 <div class="container">
  <div class="row">
-  <div class="col-sm-6 mt-5 mb-3">
-   <h4>〜客先情報〜</h4>
+  <div class="col-sm-3 col-lg-2 mt-5 mb-3">
+   <h4 class="title-user">〜客先情報〜</h4>
   </div>
  </div>
 </div>
@@ -43,7 +43,7 @@
      <th><%= @customer.telephone_number %></th>
     </tr>
     <tr height="50">
-     <th><%= link_to "一覧に戻る", customers_path %></th>
+     <th><%= link_to "一覧に戻る", customers_path, class: "btn btn-primary" %></th>
     </tr>
    </table>
   </div>
@@ -77,8 +77,8 @@
 
 <div class="container">
  <div class="row">
-  <div class="col-sm-6 mt-5 mb-3">
-   <h4>〜提案商品〜</h4>
+  <div class="col-sm-3 col-lg-2 mt-5 mb-3">
+   <h4 class="title-user">〜提案商品〜</h4>
   </div>
  </div>
 </div>
@@ -105,9 +105,10 @@
   <div class="row">
    <div class="box col-sm-8 col-md-6 col-lg-4 mt-sm-3 mb-sm-3">
     <table class="table">
-     <tr>
+     <tr class="title-bar">
       <th>商品名</th>
       <th>ステータス</th>
+      <th></th>
       <th></th>
      </tr>
      <% @suggest_items.each do |suggest_item| %>
@@ -122,6 +123,7 @@
          <div><%= f.submit '更新' %></div>
         </th>
        <% end %>
+       <th><%= link_to "削除", suggest_item_path(suggest_item.id), method: :delete %></th>
       </tr>
      <% end %>
     </table>
@@ -134,7 +136,7 @@
   <div class="row">
    <div class="box col-sm-8 col-md-6 col-lg-4 mt-sm-3 mb-sm-3">
     <table class="table">
-     <tr>
+     <tr class="title-bar">
       <th>商品名</th>
       <th>ステータス</th>
       <th></th>
@@ -159,4 +161,14 @@
   border: 1px solid #000;
   overflow-y: scroll;
  }
+
+ .title-user {
+  background:linear-gradient(45deg, #4fffc4, #fff);
+  font-family: YuGothic;
+ }
+
+.title-bar {
+  background-color: #3fcc9d;
+ }
+
 </style>

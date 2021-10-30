@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
   resources :items
-  resources :suggest_items, only: [:index, :new, :update]
+  resources :suggest_items, only: [:index, :new, :update, :destroy]
 
   post 'suggest_items' => 'suggest_items#create', as: 'create_suggest_items'
   get "/:current_users/my_page" => "users#show", as: 'my_page'

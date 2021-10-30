@@ -1,7 +1,7 @@
 <div class="container">
  <div class="row">
-  <div class="col-sm-6 mt-3 mb-3">
-   <h2>得意先詳細</h2>
+  <div class="col-sm-3 col-lg-2 mt-3 mb-3">
+   <h3 class="title-user">得意先詳細</h3>
   </div>
  </div>
 </div>
@@ -9,7 +9,7 @@
 <%= form_with model:[:admin, @customer], local:true do |f| %>
  <div class="container">
   <div class="row">
-   <table class="col-sm-12 col-lg-8 mt-sm-5 table-bordered">
+   <table class="col-sm-12 col-lg-8 mt-5 mb-5 table-bordered">
     <tr height="50">
      <th><%= f.label "担当社員" %></th>
      <th><%= link_to @customer.user.name, admin_user_path(@customer.id) %></th>
@@ -63,6 +63,12 @@
   height: 200px;
   width: 70%;
  }
+
+ .title-user {
+  background:linear-gradient(45deg, #4fffc4, #fff);
+  font-family: YuGothic;
+ }
+
 </style>
 
 

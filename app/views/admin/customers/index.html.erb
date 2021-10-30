@@ -1,7 +1,7 @@
 <div class="container">
  <div class="row">
-  <div class="col-sm-6 mt-3">
-   <h2>得意先一覧</h2>
+  <div class="col-sm-3 col-lg-2 mt-3">
+   <h3 class="title-user">得意先一覧</h3>
   </div>
  </div>
 </div>
@@ -19,7 +19,7 @@
   <div class="col-sm-10 mx-auto">
    <table class="table">
     <thead>
-     <tr class="table-secondary">
+     <tr class="title-bar">
       <th>会社名</th>
       <th>住所</th>
       <th></th>
@@ -43,7 +43,24 @@
 <div class="container">
  <div class="row">
   <div class="col-sm-10 mx-auto mb-3">
-   <div class="col-2 mx-auto"><%= paginate @customers %></div>
+   <div class="col-2 mx-auto page"><%= paginate @customers %></div>
   </div>
  </div>
 </div>
+
+<style type="text/css">
+
+ .title-user {
+  background:linear-gradient(45deg, #4fffc4, #fff);
+  font-family: YuGothic;
+ }
+
+ .title-bar {
+  background-color: #3fcc9d;
+ }
+
+ .page {
+  font-family: HiraKakuPro-W6;
+ }
+
+</style>

@@ -1,7 +1,7 @@
 <div class="container">
  <div class="row">
-  <div class="col-sm-6 mt-3 mb-3">
-   <h2>商品詳細</h2>
+  <div class="col-sm-3 col-lg-2 mt-3 mb-3">
+   <h3 class="title-user">商品詳細</h3>
   </div>
  </div>
 </div>
@@ -9,7 +9,7 @@
 <%= form_with model:[:admin, @item], local:true do |f| %>
  <div class="container">
   <div class="row">
-   <table class="col-sm-12 col-md-8 col-lg-6 mt-sm-5 table-bordered">
+   <table class="col-sm-12 col-md-8 col-lg-6 mt-5 mb-5 table-bordered">
     <tr height="50">
      <th>商品画像</th>
      <th><%= attachment_image_tag @item, :image, size: '250x200' %></th>
@@ -31,3 +31,12 @@
  </div>
 
 <% end %>
+
+<style type="text/css">
+
+ .title-user {
+  background:linear-gradient(45deg, #4fffc4, #fff);
+  font-family: YuGothic;
+ }
+
+</style>

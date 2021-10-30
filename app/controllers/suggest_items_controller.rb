@@ -19,6 +19,12 @@ class SuggestItemsController < ApplicationController
     redirect_to customer_path(suggest_item.customer_id)
   end
 
+  def destroy
+    suggest_item = SuggestItem.find(params[:id])
+    suggest_item.destroy
+    redirect_to customer_path(suggest_item.customer_id)
+  end
+
   private
   def suggest_item_params
     params.require(:suggest_item).permit(:item_id, :customer_id, :status)

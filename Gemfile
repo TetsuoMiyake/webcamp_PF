@@ -75,3 +75,4 @@ gem 'kaminari', '~> 1.2.1'
 gem "dotenv-rails"
 gem 'pry-rails'
 gem 'ransack'
+gem 'rails-i18n', '~> 5.1'

@@ -1,15 +1,15 @@
 <div class="container">
  <div class="row">
-  <div class="col-sm-6 mt-3 mb-3">
-   <h2>日報詳細</h2>
+  <div class="col-sm-3 col-lg-2 mt-3 mb-3">
+   <h3 class="title-user">日報詳細</h3>
   </div>
  </div>
 </div>
 
 <div class="container">
  <div class="row">
-  <div class="col-sm-6 mt-5 mb-3">
-   <h4>〜日報内容〜</h4>
+  <div class="col-sm-3 col-lg-2 mt-5 mb-3">
+   <h4 class="title-user">〜日報内容〜</h4>
   </div>
  </div>
 </div>
@@ -51,8 +51,8 @@
 
 <div class="container">
  <div class="row">
-  <div class="col-sm-6 mt-5 mb-3">
-   <h4>〜コメント一覧〜</h4>
+  <div class="col-sm-4 col-lg-3 mt-5 mb-3">
+   <h4 class="title-user">〜コメント一覧〜</h4>
   </div>
  </div>
 </div>
@@ -62,7 +62,7 @@
   <div class="row">
    <div class="col-sm-10 col-md-10 col-lg-8 mt-sm-5">
     <table class="col-sm-12 table-bordered">
-     <tr>
+     <tr class="title-bar">
       <th class="col-sm-3">投稿日時</th>
       <th class="col-sm-3">投稿者名</th>
       <th class="col-sm-6">コメント内容</th>
@@ -97,5 +97,13 @@
  .comment {
   word-break: break-all;
  }
-</style>
 
+ .title-user {
+  background:linear-gradient(45deg, #4fffc4, #fff);
+  font-family: YuGothic;
+ }
+
+ .title-bar {
+  background-color: #3fcc9d;
+ }
+</style>
