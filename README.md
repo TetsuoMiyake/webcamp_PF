@@ -31,8 +31,6 @@ Excel管理の場合誤ってデータ消去してしまったりなどのリス
 日々の営業活動の記録
 提案商品の進捗状況の記録
 
-## 設計書
-<...>
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1Zjj320PmjnDyBVHmH4cY34-KqpLBENc62WbzVayopZQ/edit?usp=sharing>
