@@ -11,9 +11,12 @@ class Admin::CustomersController < ApplicationController
   end
 
   def create
-    customer = Customer.new(customer_params)
-    customer.save
-    redirect_to admin_customer_path(customer.id)
+    @customer = Customer.new(customer_params)
+    if @customer.save
+      redirect_to admin_customer_path(customer.id)
+    else
+      render :new
+    end
   end
 
   def show
@@ -25,9 +28,12 @@ class Admin::CustomersController < ApplicationController
   end
 
   def update
-    customer = Customer.find(params[:id])
-    customer.update(customer_params)
-    redirect_to admin_user_path(customer.user_id)
+    @customer = Customer.find(params[:id])
+    if @customer.update(customer_params)
+      redirect_to admin_user_path(customer.user_id)
+    else
+      render :edit
+    end
   end
 
   private

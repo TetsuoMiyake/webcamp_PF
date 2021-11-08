@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    models:
+      customer: 得意先
+    attributes:
+      customer:
+        name: 会社名
+        address: 住所
+        postal_code: 郵便番号
+        telephone_number: 電話番号
+        
+  activerecord:
+    models:
+      item: 商品
+    attributes:
+      item:
+        name: 商品名
+        content: 商品内容
+        image: 商品画像
+        
+  activerecord:
+    models:
+      daily_report: 日報
+    attributes:
+      daily_report:
+        content: 訪問内容
+        start_time: 訪問日時 

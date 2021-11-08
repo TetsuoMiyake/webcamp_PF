@@ -57,7 +57,14 @@
  </div>
 </div>
 
-<% @daily_report.comments.each do |comment| %>
+<div class="container flash-area">
+ <% flash.each do |message_type, message| %>
+  <div class="aleart aleart-<%= message_type %>">
+   <%= message %>
+  </div>
+ <% end %>
+</div>
+
  <div class="container">
   <div class="row">
    <div class="col-sm-10 col-md-10 col-lg-8 mt-sm-5">
@@ -67,16 +74,17 @@
       <th class="col-sm-3">投稿者名</th>
       <th class="col-sm-6">コメント内容</th>
      </tr>
-     <tr>
-      <th class="col-sm-3"><%= comment.created_at.strftime('%Y/%m/%d') %></th>
-      <th class="col-sm-3"><%= comment.user.name %></th>
-      <th class="col-sm-6 comment"><%= comment.comment %></th>
-     </tr>
+     <% @daily_report.comments.each do |comment| %>
+      <tr>
+       <th class="col-sm-3"><%= comment.created_at.strftime('%Y/%m/%d') %></th>
+       <th class="col-sm-3"><%= comment.user.name %></th>
+       <th class="col-sm-6 comment"><%= comment.comment %></th>
+      </tr>
+     <% end %>
     </div>
    </table>
   </div>
  </div>
-<% end %>
 
 <div class="container">
  <div class="row">

@@ -6,6 +6,19 @@
  </div>
 </div>
 
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mt-3">
+   <% if @item.errors.any? %>
+    <%= @item.errors.count %>件のエラーが発生しました</br>
+    <% @item.errors.full_messages.each do |message| %>
+     <%= message %></br>
+    <% end %>
+   <% end %>
+  </div>
+ </div>
+</div>
+
 <%= form_with model:[:admin, @item], local:true do |f| %>
  <div class="container">
   <div class="row">

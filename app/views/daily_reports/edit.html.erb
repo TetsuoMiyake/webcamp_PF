@@ -6,6 +6,19 @@
  </div>
 </div>
 
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6 mt-3">
+   <% if @daily_report.errors.any? %>
+    <%= @daily_report.errors.count %>件のエラーが発生しました</br>
+    <% @daily_report.errors.full_messages.each do |message| %>
+     <%= message %></br>
+    <% end %>
+   <% end %>
+  </div>
+ </div>
+</div>
+
 <%= form_with model: @daily_report, local:true do |f| %>
 
 <div class="container">

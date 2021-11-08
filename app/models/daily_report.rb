@@ -13,4 +13,7 @@ class DailyReport < ApplicationRecord
     end
     return ret
   end
+  
+  validates :content, presence: true
+  validates :start_time, presence: true
 end
