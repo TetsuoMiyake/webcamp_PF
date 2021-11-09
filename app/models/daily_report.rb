@@ -5,15 +5,11 @@ class DailyReport < ApplicationRecord
 
   def self.search(search)
     ret = DailyReport.all
-    if search[:user_id] != ""
-      ret = ret.where(user_id: search[:user_id])
-    end
-    if search[:customer_id] != ""
-      ret = ret.where(customer_id: search[:customer_id])
-    end
-    return ret
+    ret = ret.where(user_id: search[:user_id]) if search[:user_id] != ''
+    ret = ret.where(customer_id: search[:customer_id]) if search[:customer_id] != ''
+    ret
   end
-  
+
   validates :content, presence: true
   validates :start_time, presence: true
 end

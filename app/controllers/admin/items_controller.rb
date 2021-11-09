@@ -1,5 +1,4 @@
 class Admin::ItemsController < ApplicationController
-
   before_action :authenticate_admin!, except: [:top]
 
   def index
@@ -37,8 +36,8 @@ class Admin::ItemsController < ApplicationController
   end
 
   private
+
   def item_params
     params.require(:item).permit(:name, :content, :image)
   end
-
 end

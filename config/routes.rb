@@ -3,27 +3,27 @@ Rails.application.routes.draw do
   root 'homes#top'
 
   devise_for :admins, controllers: {
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords',
+    sessions: 'admins/sessions',
+    passwords: 'admins/passwords',
     registrations: 'admins/registrations'
   }
 
   devise_for :users, controllers: {
-    sessions:      'users/sessions',
-    passwords:     'users/passwords',
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
 
   resources :customers
   resources :daily_reports do
-    collection {get "search"}
-    resources :comments, only: [:create, :destroy]
+    collection { get 'search' }
+    resources :comments, only: %i[create destroy]
   end
   resources :items
-  resources :suggest_items, only: [:index, :new, :update, :destroy]
+  resources :suggest_items, only: %i[index new update destroy]
 
   post 'suggest_items' => 'suggest_items#create', as: 'create_suggest_items'
-  get "/:current_users/my_page" => "users#show", as: 'my_page'
+  get '/:current_users/my_page' => 'users#show', as: 'my_page'
 
   namespace :admin do
     resources :customers

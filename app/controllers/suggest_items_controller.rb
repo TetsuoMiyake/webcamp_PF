@@ -1,5 +1,4 @@
 class SuggestItemsController < ApplicationController
-
   def create
     suggest_item = SuggestItem.new(suggest_item_params)
     if suggest_item.save
@@ -9,7 +8,7 @@ class SuggestItemsController < ApplicationController
       suggest_items = SuggestItem.all
       @suggest_items = @customer.suggest_items
       @suggest_item = SuggestItem.new
-      render "customers/show"
+      render 'customers/show'
     end
   end
 
@@ -26,6 +25,7 @@ class SuggestItemsController < ApplicationController
   end
 
   private
+
   def suggest_item_params
     params.require(:suggest_item).permit(:item_id, :customer_id, :status)
   end

@@ -1,5 +1,5 @@
 class DailyReportsController < ApplicationController
-  before_action :set_daily_report, only: [:edit, :show, :destroy, :update]
+  before_action :set_daily_report, only: %i[edit show destroy update]
 
   def new
     @daily_report = DailyReport.new
@@ -36,16 +36,15 @@ class DailyReportsController < ApplicationController
     end
   end
 
-  def destroy
-
-  end
+  def destroy; end
 
   def search
     @daily_reports = DailyReport.search(params).page(params[:page]).order(start_time: :desc)
-    render "index"
+    render 'index'
   end
 
   private
+
   def daily_report_params
     params.require(:daily_report).permit(:user_id, :customer_id, :content, :start_time)
   end

@@ -1,5 +1,4 @@
 class Admin::CustomersController < ApplicationController
-
   before_action :authenticate_admin!, except: [:top]
 
   def index
@@ -37,8 +36,8 @@ class Admin::CustomersController < ApplicationController
   end
 
   private
+
   def customer_params
     params.require(:customer).permit(:user_id, :name, :address, :postal_code, :telephone_number)
   end
-
 end

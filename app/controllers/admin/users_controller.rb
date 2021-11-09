@@ -1,5 +1,4 @@
 class Admin::UsersController < ApplicationController
-
   before_action :authenticate_admin!, except: [:top]
 
   def index
@@ -13,8 +12,8 @@ class Admin::UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :number)
   end
-
 end
