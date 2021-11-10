@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     if comment.save
       redirect_to daily_report_path(daily_report)
     else
-      redirect_to daily_report_path(daily_report), flash: { danger: 'コメント入力してください。' }
+      redirect_to daily_report_path(daily_report)
     end
   end
 

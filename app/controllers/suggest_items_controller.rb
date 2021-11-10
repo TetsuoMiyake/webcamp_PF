@@ -5,7 +5,7 @@ class SuggestItemsController < ApplicationController
       redirect_to customer_path(suggest_item.customer_id)
     else
       @customer = Customer.find(suggest_item.customer_id)
-      suggest_items = SuggestItem.all
+      @suggest_items = SuggestItem.all
       @suggest_items = @customer.suggest_items
       @suggest_item = SuggestItem.new
       render 'customers/show'

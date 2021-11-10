@@ -7,7 +7,7 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    customers = Customer.all
+    @customers = Customer.all
     @customers = @user.customers
   end
 

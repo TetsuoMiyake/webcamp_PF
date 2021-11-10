@@ -6,7 +6,7 @@ class CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @suggest_item = SuggestItem.new
-    suggest_items = SuggestItem.all
+    @suggest_items = SuggestItem.all
     @suggest_items = @customer.suggest_items
   end
 
